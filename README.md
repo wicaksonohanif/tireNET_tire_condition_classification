@@ -1,4 +1,4 @@
-# 🛞 TireNET. | Tire Condition Monitoring System
+# 🚘 TireNET. | Tire Condition Monitoring System
 
 ## 🔎 About
 
@@ -92,7 +92,7 @@ tire_wear_classification/
 │   ├── training_history.json      # Training history
 │   └── *.png                      # Result visualizations
 ├── assets/
-│   └── banner.png                 # (Optional) Banner image
+│   └── banner.png                 # Banner image
 ├── utils/
 │   ├── __init__.py
 │   ├── model.py                   # Model architecture & loading
@@ -120,6 +120,7 @@ tire_wear_classification/
 - **Classes**:
   - 0: Good (Tire in optimal condition)
   - 1: Defective (Tire requires replacement)
+  See details on `notebook.ipynb`
 
 ## 📊 Performance Metrics
 
@@ -144,9 +145,9 @@ tire_wear_classification/
 
 - Wicaksono Hanif Supriyanto
 
-## 📚 References
+## 📚 References & Attribution
 
 - Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L. C. (2018). MobileNetV2: Inverted Residuals and Linear Bottlenecks. arXiv. https://arxiv.org/abs/1801.04381
 - Woo, S., Park, J., Lee, J. Y., & Kweon, I. S. (2018). CBAM: Convolutional Block Attention Module. arXiv. https://arxiv.org/abs/1807.06521
-- PyTorch. https://pytorch.org/
-- Streamlit. https://streamlit.io/
+- P, PATHMANABAN; C, Abishek; Sai, Kousik muthayala; S, Karthick; S, Aakash (2023), "Digital images of defective and good condition tyres", Mendeley Data, V1, doi: 10.17632/bn7ch8tvyp.1
+- Zhan, L., Xu, X., Qi, Q., Yan, Y., Wang, Y., Qian, F., & Zhu, N. (2023). An improved YOLOv7-based detection of tire defects for driving assistance. IFAC PapersOnLine, 56(2), 4904-4909.
