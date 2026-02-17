@@ -7,12 +7,12 @@ from torchvision import transforms
 
 def preprocess_image(image_path_or_array, image_size=224, device='cpu'):
     """
-    Preprocess image untuk model inference
+    image preprocessing
     
     Args:
-        image_path_or_array: Path ke image atau numpy array
+        image_path_or_array: Path to image file or numpy array
         image_size: Target image size
-        device: Device untuk tensor (cpu atau cuda)
+        device: using cpu or gpu (cuda)
     
     Returns:
         Preprocessed tensor
@@ -43,17 +43,17 @@ def preprocess_image(image_path_or_array, image_size=224, device='cpu'):
 
 def predict(model, image_tensor, device='cpu'):
     """
-    Predict class dan confidence
+    Predict class and confidence
     
     Args:
         model: PyTorch model
         image_tensor: Preprocessed image tensor
-        device: Device untuk inference
+        device: Device for inference (cpu or cuda)
     
     Returns:
-        predictions: softmax output untuk semua classes
+        predictions: softmax output for all classes
         predicted_class: predicted class index
-        confidence: confidence score untuk predicted class
+        confidence: confidence score for predicted class
     """
     with torch.no_grad():
         outputs = model(image_tensor)
@@ -68,7 +68,7 @@ def predict(model, image_tensor, device='cpu'):
 
 
 def get_class_name(class_idx, class_names=None):
-    """Get class name dari index"""
+    """Get class name from index"""
     if class_names is None:
         class_names = {0: "Good", 1: "Defective"}
     return class_names.get(class_idx, f"Class {class_idx}")

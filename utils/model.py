@@ -59,7 +59,7 @@ class CBAM(nn.Module):
 
 
 class MobileNetV2_CBAM(nn.Module):
-    """MobileNetV2 dengan CBAM attention mechanism"""
+    """MobileNetV2 with CBAM attention mechanism"""
     
     def __init__(self, num_classes=2, pretrained=True):
         super(MobileNetV2_CBAM, self).__init__()
@@ -76,7 +76,6 @@ class MobileNetV2_CBAM(nn.Module):
         # MobileNetV2 last conv layer has 1280 channels
         self.cbam = CBAM(in_channels=1280, reduction=16)
         
-        # Classifier
         self.avgpool = nn.AdaptiveAvgPool2d(1)
         self.classifier = nn.Sequential(
             nn.Dropout(0.2),
@@ -96,30 +95,24 @@ class MobileNetV2_CBAM(nn.Module):
 def load_model(model_path, device='cpu'):
     """Load model dari checkpoint"""
     try:
-        # Ensure path exists
         model_path_obj = Path(model_path)
         if not model_path_obj.exists():
             raise FileNotFoundError(f"Model file not found: {model_path}")
         
-        # Load checkpoint
         checkpoint = torch.load(model_path, map_location=device)
         
-        # Extract model state dict
         if isinstance(checkpoint, dict):
             if 'model_state_dict' in checkpoint:
                 state_dict = checkpoint['model_state_dict']
             elif 'state_dict' in checkpoint:
                 state_dict = checkpoint['state_dict']
             else:
-                # Assume entire dict is state_dict
                 state_dict = checkpoint
         else:
             state_dict = checkpoint
         
-        # Create model
         model = MobileNetV2_CBAM(num_classes=2)
         
-        # Load state dict
         model.load_state_dict(state_dict, strict=False)
         
         model.to(device)

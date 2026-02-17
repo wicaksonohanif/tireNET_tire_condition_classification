@@ -1,5 +1,7 @@
 # 🚘 TireNET. | Tire Condition Monitoring System
 
+![Alt Text](assets/thumbnail.png)
+
 ## 🔎 About
 
 This project focuses on tire condition classification using deep learning. The system can classify tire conditions into two categories: **Good** (safe to use) and **Defective** (requires replacement) using the MobileNetV2 with CBAM (Convolutional Block Attention Module) architecture.
@@ -120,7 +122,7 @@ tire_wear_classification/
 - **Classes**:
   - 0: Good (Tire in optimal condition)
   - 1: Defective (Tire requires replacement)
-  See details on `notebook.ipynb`
+- See details on `notebook.ipynb`
 
 ## 📊 Performance Metrics
 

@@ -1,3 +1,4 @@
+# Import libraries
 import streamlit as st
 import torch
 import numpy as np
@@ -10,7 +11,7 @@ import plotly.express as px
 from utils.model import load_model, load_config, load_test_results, get_model_info
 from utils.image_processor import preprocess_image, predict, get_class_name
 
-# Set page configuration
+# Page configuration
 st.set_page_config(
     page_title="TireNET | Tire Condition Monitoring System",
     page_icon="🚘",
@@ -18,7 +19,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling
+# Custom CSS 
 st.markdown("""
     <style>
     .main {
@@ -171,7 +172,6 @@ with st.sidebar:
         """, unsafe_allow_html=True)
 
 # Main Content Area
-# Add spacing for navbar clearance
 st.write("")
 st.write("")
 
@@ -184,9 +184,9 @@ else:
     st.markdown("""
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                 padding: 40px; border-radius: 10px; text-align: center; margin-bottom: 20px;">
-        <h1 style="color: white; margin: 0; font-size: 3em;">🛞 Tire Wear Classification</h1>
+        <h1 style="color: white; margin: 0; font-size: 3em;">🚘 Tire Wear Classification</h1>
         <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 1.2em;">
-            AI-Powered Tire Condition Analysis
+            AI-Powered Tire Condition Monitoring System
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -196,7 +196,6 @@ st.markdown("---")
 if model is None:
     st.error("❌ Failed to load model. Please check the model file path and configuration.")
 else:
-    # Main Layout with flexible width
     col1, col2 = st.columns([1, 1], gap="medium")
     
     with col1:
@@ -208,7 +207,6 @@ else:
         )
         
         if uploaded_file is not None:
-            # Display uploaded image
             image = Image.open(uploaded_file)
             st.image(image, width=300, caption="Uploaded Tire Image")
     
@@ -217,7 +215,6 @@ else:
         
         if uploaded_file is not None:
             try:
-                # Preprocess and predict
                 image_tensor, processed_image = preprocess_image(
                     image, 
                     image_size=config['image_size'],
@@ -233,7 +230,6 @@ else:
                 class_names = {0: "Good", 1: "Defective"}
                 predicted_class_name = get_class_name(predicted_class, class_names)
                 
-                # Display result
                 result_color = "green" if predicted_class == 0 else "red"
                 result_icon = "✅" if predicted_class == 0 else "⚠️"
                 
@@ -249,7 +245,6 @@ else:
                 </div>
                 """, unsafe_allow_html=True)
                 
-                # Store predictions in session state for other tabs
                 st.session_state.predictions = predictions
                 st.session_state.predicted_class = predicted_class
                 st.session_state.confidence_score = confidence_score
