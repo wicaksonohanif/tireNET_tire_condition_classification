@@ -168,7 +168,18 @@ with st.sidebar:
                 <span style="font-size: 18px; margin-right: 10px;">🖥️</span>
                 <span><strong>Device:</strong> {str(device).upper()}</span>
             </div>
-        </div>
+            <p style="margin: 0; color: #666; font-size: 14px;">Dataset: Digital images of defective and good condition tyres  
+            <br>  
+            Authors: Pathmanaban, P. et al. (2023)
+            <br>  
+            Source: Mendeley Data (doi:10.17632/bn7ch8tvyp.1)
+            </br>   
+            Accessed via Kaggle (uploaded by Chirag Chauhan)
+            </br>   
+            License: CC BY 4.0
+            </br>  
+            Modifications: preprocessing and classification modeling</p>
+            </div>
         """, unsafe_allow_html=True)
 
 # Main Content Area
